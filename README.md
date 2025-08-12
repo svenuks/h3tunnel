@@ -46,6 +46,15 @@
     ```
     Built executables will be in the `bin/` directory.
 
+## 📦 Download Pre-built Binaries
+
+You can download pre-built executables for various platforms from the [GitHub Releases page](https://github.com/svenuks/h3tunnel/releases).
+
+1.  Go to the [Releases page](https://github.com/svenuks/h3tunnel/releases).
+2.  Download the appropriate `h3tunnel-client-*-*` and `h3tunnel-server-*-*` files for your operating system and architecture.
+3.  Place them in a `bin/` directory (or any directory in your system's PATH).
+4.  Ensure you have `config.client.json` and `config.server.json` in the same directory as the executables, or specify their paths when running.
+
 ### Configuration
 
 Configure the application using `config.client.json` and `config.server.json`.
@@ -89,6 +98,11 @@ Configure the application using `config.client.json` and `config.server.json`.
     ```bash
     ./bin/h3tunnel-client # or other platform executable
     ```
+
+## 📄 License
+
+This project is licensed under the [Apache License 2.0](LICENSE).
+
 ## 📄 License
 
 This project is licensed under the [Apache License 2.0](LICENSE).
