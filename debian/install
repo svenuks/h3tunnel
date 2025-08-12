@@ -1,0 +1,6 @@
+bin/tunnel-client usr/local/bin/
+bin/tunnel-server usr/local/bin/
+config.client.json etc/h3tunnel/
+config.server.json etc/h3tunnel/
+debian/h3tunnel-client.service etc/systemd/system/
+debian/h3tunnel-server.service etc/systemd/system/

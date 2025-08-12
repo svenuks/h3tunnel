@@ -1,0 +1,30 @@
+# Binaries for client and server
+bin/
+
+# Log files
+*.log
+
+# Test artifacts
+index.html
+wget_output.log
+test_client_output.log
+cmd/test-build/
+
+# Go build cache
+.cache/
+
+# Debian packaging artifacts
+*.deb
+*.changes
+*.dsc
+*.tar.xz
+
+# Go module cache (usually outside project, but good to list)
+.modcache/
+
+# IDE files
+.idea/
+.vscode/
+
+# OS generated files
+.DS_Store

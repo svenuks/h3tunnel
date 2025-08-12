@@ -1,0 +1,53 @@
+#!/usr/bin/make -f
+
+export DH_VERBOSE = 1
+
+# Set GOARCH and GOOS for cross-compilation if needed
+# For x86_64 Linux, GOARCH=amd64 GOOS=linux
+export GOARCH ?= amd64
+export GOOS ?= linux
+
+# Build flags for Go
+GOFLAGS := -ldflags "-s -w"
+
+build:
+	dh_auto_build
+
+override_dh_auto_build:
+	# Build client
+	go build $(GOFLAGS) -o bin/tunnel-client ./cmd/client
+	# Build server
+	go build $(GOFLAGS) -o bin/tunnel-server ./cmd/server
+
+clean:
+	dh_auto_clean
+	rm -rf bin
+
+install:
+	dh_auto_install
+
+override_dh_auto_install:
+	# Install client executable
+	mkdir -p $(DESTDIR)/usr/local/bin
+	cp bin/tunnel-client $(DESTDIR)/usr/local/bin/
+
+	# Install server executable
+	cp bin/tunnel-server $(DESTDIR)/usr/local/bin/
+
+	# Install client config
+	mkdir -p $(DESTDIR)/etc/tunnel
+	cp config.client.json $(DESTDIR)/etc/tunnel/client.json
+
+	# Install server config
+	cp config.server.json $(DESTDIR)/etc/tunnel/server.json
+
+	# Install systemd service files
+	mkdir -p $(DESTDIR)/etc/systemd/system
+	cp debian/tunnel-client.service $(DESTDIR)/etc/systemd/system/
+	cp debian/tunnel-server.service $(DESTDIR)/etc/systemd/system/
+
+
+# This is a simple package, so we don't need to override other targets.
+# You can add more complex logic here if needed.
+
+.PHONY: build clean install

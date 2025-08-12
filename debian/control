@@ -1,0 +1,21 @@
+Source: h3tunnel
+Section: net
+Priority: optional
+Maintainer: Your Name <your.email@example.com>
+Build-Depends: debhelper (>= 13), golang-go
+Standards-Version: 4.6.0
+Homepage: https://github.com/your/repo
+
+Package: h3tunnel-client
+Architecture: amd64
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Client for the Secure QUIC Tunnel proxy.
+ This package provides the client component for the Secure QUIC Tunnel,
+ allowing local TCP traffic to be securely forwarded over QUIC.
+
+Package: h3tunnel-server
+Architecture: amd64
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Server for the Secure QUIC Tunnel proxy.
+ This package provides the server component for the Secure QUIC Tunnel,
+ accepting secure QUIC connections and forwarding traffic to remote targets.

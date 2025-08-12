@@ -1,0 +1,12 @@
+[Unit]
+Description=Secure QUIC Tunnel Client
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/tunnel-client
+WorkingDirectory=/etc/tunnel
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target
