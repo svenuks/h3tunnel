@@ -1,6 +1,8 @@
 module h3tunnel
 
-go 1.24.6
+go 1.22
+
+toolchain go1.24.6
 
 require github.com/quic-go/quic-go v0.42.0
 

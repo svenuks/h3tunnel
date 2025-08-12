@@ -8,10 +8,10 @@ import (
 	"strings"
 
 	"github.com/quic-go/quic-go"
-	"tunnel/internal/auth"
-	"tunnel/internal/config"
-	"tunnel/internal/protocol"
-	"tunnel/internal/proxy"
+	"h3tunnel/internal/auth"
+	"h3tunnel/internal/config"
+	"h3tunnel/internal/protocol"
+	"h3tunnel/internal/proxy"
 )
 
 func main() {

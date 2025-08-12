@@ -1,5 +1,5 @@
 {
-  "server_address": "127.0.0.1:4430",
+  "server_address": "remote-server-ip:4433",
   "password": "yoiur-secret-password",
   "tunnels": [
     {

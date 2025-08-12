@@ -8,9 +8,9 @@ import (
 	"sync"
 
 	"github.com/quic-go/quic-go"
-	"tunnel/internal/auth"
-	"tunnel/internal/config"
-	"tunnel/internal/proxy"
+	"h3tunnel/internal/auth"
+	"h3tunnel/internal/config"
+	"h3tunnel/internal/proxy"
 )
 
 func main() {
