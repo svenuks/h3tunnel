@@ -1,5 +1,5 @@
 # Binaries for client and server
-bin/
+
 
 # Log files
 *.log
@@ -28,3 +28,6 @@ cmd/test-build/
 
 # OS generated files
 .DS_Store
+
+# Personal notes
+info.md
