@@ -1,8 +1,10 @@
 package main
 
 import (
-	"bufio"
 	"context"
+	"flag"
+	"fmt"
+	"io"
 	"log"
 	"net"
 	"strings"
@@ -15,9 +17,12 @@ import (
 )
 
 func main() {
+	configPath := flag.String("config", "config.server.json", "path to server config file")
+	flag.Parse()
+
 	log.Println("Starting server...")
 
-	cfg, err := config.LoadServerConfig("config.server.json")
+	cfg, err := config.LoadServerConfig(*configPath)
 	if err != nil {
 		log.Fatalf("Failed to load server config: %v", err)
 	}
@@ -70,10 +75,28 @@ func handleConnection(conn quic.Connection, password string) {
 	}
 }
 
+func readLine(r io.Reader) (string, error) {
+	var buf []byte
+	var b [1]byte
+	for {
+		_, err := r.Read(b[:])
+		if err != nil {
+			return "", err
+		}
+		if b[0] == '\n' {
+			break
+		}
+		buf = append(buf, b[0])
+		if len(buf) > 1024 {
+			return "", fmt.Errorf("line exceeds maximum length of 1024 bytes")
+		}
+	}
+	return string(buf), nil
+}
+
 func handleProxyStream(stream quic.Stream) {
 	// The first thing on the stream should be the remote address
-	reader := bufio.NewReader(stream)
-	remoteAddr, err := reader.ReadString('\n')
+	remoteAddr, err := readLine(stream)
 	if err != nil {
 		log.Printf("Failed to read remote address from stream: %v", err)
 		stream.Close()

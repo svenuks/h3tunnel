@@ -103,6 +103,3 @@ Configure the application using `config.client.json` and `config.server.json`.
 
 This project is licensed under the [Apache License 2.0](LICENSE).
 
-## 📄 License
-
-This project is licensed under the [Apache License 2.0](LICENSE).

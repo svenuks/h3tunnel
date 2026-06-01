@@ -65,7 +65,7 @@ func HandleServerAuth(ctx context.Context, conn quic.Connection, expectedPasswor
 	}
 	defer stream.Close()
 
-	passBytes, err := io.ReadAll(stream)
+	passBytes, err := io.ReadAll(io.LimitReader(stream, 1024))
 	if err != nil {
 		return fmt.Errorf("failed to read password from stream: %w", err)
 	}

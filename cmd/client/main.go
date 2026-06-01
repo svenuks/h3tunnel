@@ -3,6 +3,7 @@ package main
 import (
 	"context"
 	"crypto/tls"
+	"flag"
 	"log"
 	"net"
 	"sync"
@@ -14,9 +15,12 @@ import (
 )
 
 func main() {
+	configPath := flag.String("config", "config.client.json", "path to client config file")
+	flag.Parse()
+
 	log.Println("Starting client...")
 
-	cfg, err := config.LoadClientConfig("config.client.json")
+	cfg, err := config.LoadClientConfig(*configPath)
 	if err != nil {
 		log.Fatalf("Failed to load client config: %v", err)
 	}
