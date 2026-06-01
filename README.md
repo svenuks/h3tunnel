@@ -1,6 +1,6 @@
 # h3tunnel - High-Performance TCP over HTTP/3 (QUIC) Tunnel
 
-`h3tunnel` is a lightweight, secure client-server (C/S) tunneling utility designed to bypass restrictive networks and forward TCP traffic transparently over the QUIC (HTTP/3) protocol. By leveraging QUIC's multi-plexing, fast connection establishment, and robust packet loss recovery, `h3tunnel` ensures a highly resilient, low-latency, and encrypted data transfer channel.
+`h3tunnel` is a lightweight, secure client-server (C/S) tunneling utility designed to bypass restrictive networks and forward TCP traffic transparently over the QUIC (HTTP/3) protocol. By leveraging QUIC's multi-plexing, fast connection establishment, and robust packet loss recovery, `h3tunnel` ensures a highly resilient, low-latency, and encrypted data transfer channel. It supports multi-tunnel mapping via a simple JSON configuration, making it a perfect solution for secure port-forwarding, remote access, and cross-platform proxying.
 
 ## 🚀 Features
 
